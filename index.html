@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sai Samarth Tours and Travel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Sai Samarth</div>
+            <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero">
+            <h1>Sai Samarth Tours and Travel</h1>
+            <p>Your premium travel service in Pune, Vadgaon</p>
+            <a href="contact.html" class="btn">Book Now</a>
+        </div>
+    </header>
+
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="images/ertiga-car.jpg" alt="Tour 1" />
+            <img src="images/ertiga-car1.jpg" alt="Tour 2" />
+            <img src="images/ertiga-car2.jpg" alt="Tour 3" />
+        </div>
+    </section>
+
+    <footer>
+        <p>Contact us: +91-8329251020 | Email: contact@saisamarthtravels.com</p>
+    </footer>
+
+    <!-- Moved script to end of body -->
+    <script>
+        const menuToggle = document.getElementById("mobile-menu");
+        const navLinks = document.getElementById("nav-links");
+
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
+</body>
+
+</html>

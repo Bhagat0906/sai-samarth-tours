@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback - Sai Samarth Tours and Travel</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">Sai Samarth</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Customer Feedback</h1>
+            <p>Your thoughts help us improve. Share your experience with us!</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="feedback-form">
+            <form action="#" method="POST">
+                <label for="name">Full Name:</label><br />
+                <input type="text" id="name" name="name" required /><br /><br />
+
+                <label for="email">Email:</label><br />
+                <input type="email" id="email" name="email" required /><br /><br />
+
+                <label for="rating">Rating:</label><br />
+                <select id="rating" name="rating" required>
+                    <option value="">--Choose--</option>
+                    <option value="5">Excellent (5)</option>
+                    <option value="4">Very Good (4)</option>
+                    <option value="3">Good (3)</option>
+                    <option value="2">Fair (2)</option>
+                    <option value="1">Poor (1)</option>
+                </select><br /><br />
+
+                <label for="feedback">Your Feedback:</label><br />
+                <textarea id="feedback" name="feedback" rows="5" required></textarea><br /><br />
+
+                <button type="submit" class="btn">Submit Feedback</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sai Samarth Tours and Travel. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
