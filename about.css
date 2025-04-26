@@ -1,4 +1,6 @@
-/* General Styles */
+/* about.css */
+
+/* Page Layout */
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff);
@@ -7,49 +9,91 @@ body {
     padding: 0;
 }
 
-header {
+header.hero {
     background: linear-gradient(to right, #00b4d8, #90e0ef);
     text-align: center;
     color: white;
     padding: 3rem 1rem 2rem;
 }
 
-header h1 {
+header.hero h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
 }
 
-header p {
+header.hero p {
     font-size: 1.2rem;
     margin: 0;
 }
 
-main {
+/* Main Content Container */
+.container {
     max-width: 1200px;
     margin: auto;
-    padding: 2rem 1.5rem;
+    padding: 2rem 1rem;
 }
 
-.about-section {
-    background: #ffffff;
+/* Card Style Section Boxes */
+.card {
+    background-color: #ffffff;
     padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
     margin-bottom: 2rem;
 }
 
-.about-section h2 {
+.card h2 {
     color: #0077b6;
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
     text-align: center;
 }
 
-.about-section p {
+.card p,
+.card ul {
     font-size: 1rem;
-    line-height: 1.6;
     color: #333;
+    line-height: 1.6;
     text-align: justify;
+}
+
+.card ul {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+}
+
+/* Team Section */
+.team {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.team-member {
+    text-align: center;
+    max-width: 200px;
+}
+
+.team-member img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.team-member h3 {
+    margin: 0.5rem 0 0.25rem;
+    font-size: 1.2rem;
+    color: #023e8a;
+}
+
+.team-member p {
+    font-size: 0.9rem;
+    color: #555;
 }
 
 /* Footer */
@@ -61,21 +105,26 @@ footer {
     margin-top: 2rem;
 }
 
-/* Responsive Styles */
+/* Responsive */
 @media (max-width: 768px) {
-    header h1 {
+    header.hero h1 {
         font-size: 2rem;
     }
 
-    header p {
+    header.hero p {
         font-size: 1rem;
     }
 
-    .about-section h2 {
+    .card h2 {
         font-size: 1.5rem;
     }
 
-    .about-section {
+    .card {
         padding: 1.5rem;
+    }
+
+    .team {
+        flex-direction: column;
+        align-items: center;
     }
 }

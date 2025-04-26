@@ -7,22 +7,25 @@ body {
     padding: 0;
 }
 
-header {
+.hero {
     background: linear-gradient(to right, #00b4d8, #90e0ef);
-    text-align: center;
     color: white;
-    padding: 3rem 1rem 2rem;
+    padding: 5rem 1rem 3rem;
+    text-align: center;
 }
 
-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
 
-header p {
-    font-size: 1.2rem;
-    margin: 0;
+.hero p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
+
 
 main {
     max-width: 600px;
@@ -89,13 +92,12 @@ footer {
     margin-top: 2rem;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
-    header h1 {
+    .hero h1 {
         font-size: 2rem;
     }
 
-    header p {
+    .hero p {
         font-size: 1rem;
     }
 

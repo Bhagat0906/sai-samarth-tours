@@ -1,28 +1,28 @@
-/* SERVICES PAGE SPECIFIC STYLES */
+/* GENERAL STYLES */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff);
+    background: linear-gradient(to bottom, #e6f7ff, #ffffff);
     color: #023e8a;
     margin: 0;
     padding: 0;
 }
 
-/* HEADER */
-header {
-    text-align: center;
-    padding: 3rem 1rem 2rem;
+/* HEADER STYLE */
+.hero {
     background: linear-gradient(to right, #00b4d8, #90e0ef);
-    color: #fff;
+    color: white;
+    padding: 5rem 1rem 3rem;
+    text-align: center;
 }
 
-header h1 {
-    font-size: 2.8rem;
-    margin-bottom: 0.5rem;
+.hero h1 {
+    font-size: 3rem;
     font-weight: 700;
+    margin-bottom: 1rem;
 }
 
-header p {
-    font-size: 1.2rem;
+.hero p {
+    font-size: 1.3rem;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -34,18 +34,14 @@ main {
     margin: auto;
 }
 
-section {
-    margin-bottom: 3rem;
-}
-
 section h2 {
     font-size: 2.2rem;
     color: #0077b6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 
-/* SERVICE BOXES */
+/* SERVICE CARDS */
 .services-container {
     display: flex;
     flex-wrap: wrap;
@@ -69,15 +65,15 @@ section h2 {
 }
 
 .service-box h3 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #0077b6;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .service-box p {
     font-size: 1rem;
     line-height: 1.6;
-    color: #333;
+    color: #555;
 }
 
 /* FOOTER */
@@ -86,21 +82,18 @@ footer {
     color: white;
     text-align: center;
     padding: 1.5rem;
+    margin-top: 4rem;
 }
 
 /* RESPONSIVE STYLES */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2.2rem;
+    .hero h1 {
+        font-size: 2.4rem;
     }
 
-    header p {
+    .hero p {
         font-size: 1rem;
         padding: 0 1rem;
-    }
-
-    section h2 {
-        font-size: 1.7rem;
     }
 
     .services-container {

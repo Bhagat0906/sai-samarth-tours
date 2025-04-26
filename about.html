@@ -5,28 +5,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Sai Samarth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="about.css" />
 </head>
 
 <body>
 
-    <header>
+    <nav class="navbar">
+        <div class="logo">Sai Samarth</div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">&#9776;</div>
+    </nav>
+
+    <header class="hero">
         <h1>About Us</h1>
         <p>Welcome to Sai Samarth Tours and Travel</p>
     </header>
 
-    <main>
-        <section>
+    <main class="container">
+        <section class="card">
             <h2>Our Story</h2>
             <p>
                 Sai Samarth Tours and Travel was founded with the vision to provide comfortable, reliable, and
-                affordable travel experiences to our customers. With years of experience in the travel industry, we’ve
-                built a reputation for excellence and trust.
+                affordable travel experiences. With years of experience in the travel industry, we’ve built a reputation
+                for excellence and trust.
             </p>
         </section>
 
-        <section>
+        <section class="card">
             <h2>Our Mission</h2>
             <p>
                 Our mission is to make your journeys memorable. Whether it's a short city trip or a long-distance tour,
@@ -34,7 +46,7 @@
             </p>
         </section>
 
-        <section>
+        <section class="card">
             <h2>What We Offer</h2>
             <ul>
                 <li>Local and outstation tours</li>
@@ -45,11 +57,11 @@
             </ul>
         </section>
 
-        <section>
+        <section class="card">
             <h2>Meet Our Team</h2>
-            <div>
-                <div>
-                    <img src="team1.jpg" alt="Team Member 1" />
+            <div class="team">
+                <div class="team-member">
+                    <img src="team1.jpg" alt="Sanket Waghmare" />
                     <h3>Sanket Waghmare</h3>
                     <p>Founder & CEO</p>
                 </div>
@@ -61,6 +73,14 @@
     <footer>
         <p>&copy; 2025 Sai Samarth Tours and Travel. All rights reserved.</p>
     </footer>
+
+    <script>
+        const menuToggle = document.getElementById("mobile-menu");
+        const navLinks = document.getElementById("nav-links");
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+    </script>
 
 </body>
 

@@ -9,59 +9,111 @@
     <link rel="stylesheet" href="contact.css" />
 </head>
 
-
-
-
 <body>
+    <nav class="navbar">
+        <div class="logo">Sai Samarth</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+        </ul>
+        <div class="menu-toggle">&#9776;</div>
+    </nav>
 
-    <header>
+    <section class="hero">
         <h1>Contact Us</h1>
         <p>We’d love to hear from you!</p>
-    </header>
+    </section>
 
     <main>
-        <section>
-            <h2>Get in Touch</h2>
-            <p>If you have any questions or want to book a trip, feel free to reach out to us using the form below or
-                contact us through our provided details.</p>
+        <div class="contact-section">
+            <section>
+                <h2>Get in Touch</h2>
+                <p>If you have any questions or want to book a trip, feel free to reach out to us using the form below
+                    or contact us through our provided details.</p>
 
-            <form action="submit_form.php" method="POST">
-                <label for="name">Full Name:</label><br />
-                <input type="text" id="name" name="name" required /><br /><br />
+                <form id="contactForm" action="send_contact.php" method="POST">
 
-                <label for="email">Email:</label><br />
-                <input type="email" id="email" name="email" required /><br /><br />
+                    <label for="name">Full Name:</label><br />
+                    <input type="text" id="name" name="name" required /><br /><br />
 
-                <label for="phone">Phone Number:</label><br />
-                <input type="tel" id="phone" name="phone" required /><br /><br />
+                    <label for="email">Email:</label><br />
+                    <input type="email" id="email" name="email" required /><br /><br />
 
-                <label for="message">Your Message:</label><br />
-                <textarea id="message" name="message" rows="5" required></textarea><br /><br />
+                    <label for="phone">Phone Number:</label><br />
+                    <input type="tel" id="phone" name="phone" required /><br /><br />
 
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
+                    <label for="message">Your Message:</label><br />
+                    <textarea id="message" name="message" rows="5" required></textarea><br /><br />
 
-        <section>
-            <h2>Contact Information</h2>
-            <p><strong>Phone:</strong> +91-8329251020</p>
-            <p><strong>Email:</strong> saisamarthtravel@example.com</p>
-            <p><strong>Address:</strong> Shop No. 5, Main Road, Pune, Maharashtra, India</p>
-        </section>
+                    <button type="submit">Send Message</button>
+                    <div id="responseMessage" style="margin-top: 1rem; font-weight: bold;"></div>
+                </form>
+            </section>
 
-        <section>
-            <h2>Follow Us</h2>
-            <ul>
-                <li><a href="#" target="_blank">Facebook</a></li>
-                <li><a href="#" target="_blank">Instagram</a></li>
-                <li><a href="#" target="_blank">Twitter</a></li>
-            </ul>
-        </section>
+            <section>
+                <h2>Contact Information</h2>
+                <p><strong>Phone:</strong> +91-8329251020</p>
+                <p><strong>Email:</strong> saisamarthtravel@example.com</p>
+                <p><strong>Address:</strong> Shop No. 5, Main Road, Pune, Maharashtra, India</p>
+            </section>
+
+            <section>
+                <h2>Follow Us</h2>
+                <ul>
+                    <li><a href="#" target="_blank">Facebook</a></li>
+                    <li><a href="#" target="_blank">Instagram</a></li>
+                    <li><a href="#" target="_blank">Twitter</a></li>
+                </ul>
+            </section>
+        </div>
     </main>
 
     <footer>
         <p>&copy; 2025 Sai Samarth Tours and Travel. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const toggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+            toggle.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+            });
+
+            const form = document.getElementById("contactForm");
+            const responseMessage = document.getElementById("responseMessage");
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                const phone = document.getElementById('phone').value.trim();
+
+                // ✅ Phone number validation (only 10 digits)
+                if (!/^\d{10}$/.test(phone)) {
+                    responseMessage.innerHTML = "❌ <span style='color:red;'>Phone number must be exactly 10 digits.</span>";
+                    return; // Stop form submission
+                }
+                const formData = new FormData(form);
+
+                fetch("send_contact.php", {
+                    method: "POST",
+                    body: formData
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        responseMessage.innerHTML = "✅ <span style='color:green;'>Thanks for submitting! We will contact you soon.</span>";
+                        form.reset();
+                    })
+                    .catch(error => {
+                        responseMessage.innerHTML = "❌ <span style='color:red;'>There was a problem. Please try again.</span>";
+                        console.error("Error:", error);
+                    });
+            });
+        });
+    </script>
 
 </body>
 

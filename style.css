@@ -1,3 +1,4 @@
+/* GLOBAL STYLES */
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +24,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: 60px;
 }
 
 .logo {
@@ -48,6 +50,14 @@ body {
 .nav-links a:hover {
     color: #00b4d8;
     transform: scale(1.05);
+}
+
+/* MOBILE MENU */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #0077b6;
 }
 
 /* HERO SECTION */
@@ -160,14 +170,6 @@ footer {
     margin-top: 2rem;
 }
 
-/* MOBILE MENU */
-.menu-toggle {
-    display: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #0077b6;
-}
-
 /* ANIMATION */
 @keyframes fadeIn {
     from {
@@ -181,7 +183,7 @@ footer {
     }
 }
 
-/* RESPONSIVE */
+/* =================== RESPONSIVE =================== */
 @media (max-width: 768px) {
     .menu-toggle {
         display: block;
@@ -223,3 +225,23 @@ footer {
         height: auto;
     }
 }
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+    }
+
+    .service {
+        width: 90%;
+        padding: 1.5rem;
+    }
+}   

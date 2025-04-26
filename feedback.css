@@ -1,0 +1,72 @@
+/* Feedback Form Styling */
+.feedback-form {
+    background-color: #ffffff;
+    max-width: 600px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.feedback-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.feedback-form label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #023e8a;
+    display: block;
+}
+
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.feedback-form select {
+    appearance: none;
+    background-color: #fff;
+}
+
+.feedback-form textarea {
+    resize: vertical;
+}
+
+.feedback-form .btn {
+    background-color: #00b4d8;
+    color: white;
+    padding: 0.9rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.feedback-form .btn:hover {
+    background-color: #0077b6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .feedback-form {
+        padding: 1.5rem;
+        margin: 2rem 1rem;
+    }
+
+    .feedback-form .btn {
+        font-size: 0.95rem;
+    }
+}
