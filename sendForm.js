@@ -5,8 +5,8 @@ const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: "bhagatgaurav0906@gmail.com", // Your Gmail address
-    pass: "mrwlcqfcctymfajq" // App Password without spaces
+    user: "process.env.EMAIL_USER", // Your Gmail address
+    pass: "process.env.EMAIL_PASS" // App Password without spaces
   }
 });
 
@@ -16,7 +16,7 @@ const sendForm = async (req, res) => {
 
   const mailOptions = {
     from: `"${name}" <${email}>`,
-    to: "bhagatgaurav0906@gmail.com", // Where you want to receive form submissions
+    to: "process.env.EMAIL_USER", // Where you want to receive form submissions
     subject: "New Contact Form Submission",
     text: `
 Name: ${name}
