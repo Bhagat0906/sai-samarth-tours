@@ -1,37 +1,18 @@
 // sendForm.js
-const nodemailer = require("nodemailer");
+(function() {
+    emailjs.init("G750oD2AeBjXtF_jI"); // from EmailJS dashboard (Account → API Keys)
+})();
 
-// Create transporter
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: "process.env.EMAIL_USER", // Your Gmail address
-    pass: "process.env.EMAIL_PASS" // App Password without spaces
-  }
-});
+window.onload = function() {
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+        e.preventDefault();
 
-// Function to send email
-const sendForm = async (req, res) => {
-  const { name, email, message } = req.body;
-
-  const mailOptions = {
-    from: `"${name}" <${email}>`,
-    to: "process.env.EMAIL_USER", // Where you want to receive form submissions
-    subject: "New Contact Form Submission",
-    text: `
-Name: ${name}
-Email: ${email}
-Message: ${message}
-    `
-  };
-
-  try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ success: true, message: "Message sent successfully!" });
-  } catch (error) {
-    console.error("Error sending email:", error);
-    res.status(500).json({ success: false, message: "Error sending message", error });
-  }
+        emailjs.sendForm("service_1hijtbb", "template_vdxo3vf", this)
+            .then(function() {
+            }, function(error) {
+                console.error("EmailJS Error:", error);
+            });
+             document.getElementById("formMessage").textContent = "Thanks for contacting us. We will contact you back shortly.";
+            document.getElementById("contactForm").reset();
+    });
 };
-
-module.exports = sendForm;

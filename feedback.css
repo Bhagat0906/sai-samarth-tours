@@ -1,32 +1,77 @@
 /* Feedback Form Styling */
-.feedback-form {
-    background-color: #ffffff;
+#feedbackForm {
+    background-color: #eff1f1;
     max-width: 600px;
     margin: 3rem auto;
     padding: 2rem;
     border-radius: 16px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
-}
-
-.feedback-form form {
     display: flex;
     flex-direction: column;
 }
 
-.form-group {
-    margin-bottom: 1.5rem;
+/* --- Stars --- */
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    /* lets ~ select “previous” stars visually */
+    gap: 6px;
 }
 
-.feedback-form label {
+.star-rating input {
+    position: absolute;
+    left: -9999px;
+    /* hide radios but keep them accessible */
+}
+
+.star-rating label {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    line-height: 1;
+    display: inline-block;
+    user-select: none;
+}
+
+/* hollow star by default */
+.star-rating label::before {
+    content: "\2606";
+    /* ☆ */
+    font-size: 32px;
+    color: #c9c9c9;
+    transition: color 0.2s ease;
+}
+
+/* hover: this star + all “previous” (visually left) stars */
+.star-rating label:hover::before,
+.star-rating label:hover~label::before {
+    content: "\2605";
+    /* ★ */
+    color: #f5b301;
+}
+
+/* checked: the selected star itself */
+.star-rating input:checked+label::before {
+    content: "\2605";
+    color: #f5b301;
+}
+
+/* checked: and all “previous” (visually left) stars */
+.star-rating input:checked~label::before {
+    content: "\2605";
+    color: #f5b301;
+}
+
+#feedbackForm label {
     font-weight: 500;
     margin-bottom: 0.5rem;
     color: #023e8a;
     display: block;
 }
 
-.feedback-form input,
-.feedback-form select,
-.feedback-form textarea {
+#feedbackForm input,
+#feedbackForm select,
+#feedbackForm textarea {
     width: 100%;
     padding: 0.8rem;
     font-size: 1rem;
@@ -35,16 +80,16 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.feedback-form select {
+#feedbackForm select {
     appearance: none;
     background-color: #fff;
 }
 
-.feedback-form textarea {
+#feedbackForm textarea {
     resize: vertical;
 }
 
-.feedback-form .btn {
+#feedbackForm .btn {
     background-color: #00b4d8;
     color: white;
     padding: 0.9rem 1.5rem;
@@ -55,18 +100,18 @@
     transition: background-color 0.3s ease;
 }
 
-.feedback-form .btn:hover {
+#feedbackForm .btn:hover {
     background-color: #0077b6;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-    .feedback-form {
+    #feedbackForm {
         padding: 1.5rem;
         margin: 2rem 1rem;
     }
 
-    .feedback-form .btn {
+    #feedbackForm .btn {
         font-size: 0.95rem;
     }
 }
