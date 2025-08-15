@@ -1,11 +1,11 @@
 (function(){
-    emailjs.init("G750oD2AeBjXtF_jI"); // Replace with your EmailJS public key
+    emailjs.init("ahcfdBYazuTBjYgar"); // Replace with your EmailJS public key
 })();
 
 document.getElementById('feedbackForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    emailjs.sendForm('service_1hijtbb', 'template_eta9w6j', this)
+    emailjs.sendForm('service_scf05ze', 'template_2irbsyc', this)
         .then(function() {
             document.getElementById('feedbackForm').reset();
         }, function(error) {

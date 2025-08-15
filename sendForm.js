@@ -1,13 +1,13 @@
 // sendForm.js
 (function() {
-    emailjs.init("G750oD2AeBjXtF_jI"); // from EmailJS dashboard (Account → API Keys)
+    emailjs.init("ahcfdBYazuTBjYgar"); // from EmailJS dashboard (Account → API Keys)
 })();
 
 window.onload = function() {
     document.getElementById("contactForm").addEventListener("submit", function(e) {
         e.preventDefault();
 
-        emailjs.sendForm("service_1hijtbb", "template_vdxo3vf", this)
+        emailjs.sendForm("service_scf05ze", "template_1jztapt", this)
             .then(function() {
             }, function(error) {
                 console.error("EmailJS Error:", error);

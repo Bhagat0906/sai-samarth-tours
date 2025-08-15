@@ -14,14 +14,18 @@
     <header>
         <nav class="navbar">
             <div class="logo">Sai Samarth</div>
+            <button class="menu-toggle">☰</button>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="index.html#gallery">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="feedback.html" class="active">Feedback</a></li>
+
             </ul>
         </nav>
+
         <div class="hero">
             <h1>Customer Feedback</h1>
             <p>Your thoughts help us improve. Share your experience with us!</p>
@@ -58,23 +62,6 @@
                     <input type="radio" id="star1" name="rating" value="1" />
                     <label for="star1" aria-label="1 star"></label>
                 </div>
-                <script>
-                    document.addEventListener("DOMContentLoaded", function () {
-                        let lastChecked = null;
-
-                        document.querySelectorAll('.star-rating input').forEach(star => {
-                            star.addEventListener('click', function () {
-                                if (lastChecked === this) {
-                                    this.checked = false; // uncheck
-                                    lastChecked = null;
-                                } else {
-                                    lastChecked = this;
-                                }
-                            });
-                        });
-                    });
-                </script>
-
             </div>
 
             <div class="form-group">
@@ -83,17 +70,45 @@
             </div>
 
             <button type="submit" class="btn">Submit Feedback</button>
-            <p id="formMessage" style="margin-top: 10px; align-items: center; font-weight: bold; color: green;"></p>
+            <p id="formMessage" style="margin-top: 10px; font-weight: bold; color: green;"></p>
         </form>
-
-
-        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-        <script src="feedback.js"></script>
     </main>
 
     <footer>
         <p>&copy; 2025 Sai Samarth Tours and Travel. All rights reserved.</p>
     </footer>
+
+    <!-- JS for Hamburger Menu -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Optional: star uncheck logic
+        document.addEventListener("DOMContentLoaded", function () {
+            let lastChecked = null;
+            document.querySelectorAll('.star-rating input').forEach(star => {
+                star.addEventListener('click', function () {
+                    if (lastChecked === this) {
+                        this.checked = false;
+                        lastChecked = null;
+                    } else {
+                        lastChecked = this;
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- EmailJS SDK + Feedback Handler -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="feedback.js"></script>
+
 </body>
 
 </html>

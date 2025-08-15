@@ -1,4 +1,95 @@
-/* Feedback Form Styling */
+/* ------------------ General Styles ------------------ */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #f0f8ff, #e6f7ff);
+    color: #023e8a;
+}
+
+/* Hamburger Icon */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #00b4d8;
+    background: none;
+    border: none;
+}
+
+/* ------------------ Navbar Styles ------------------ */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px 20px;
+    position: relative;
+}
+
+nav h1 {
+    color: #00b4d8;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #00b4d8;
+    /* Always visible */
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    transition: none;
+}
+
+/* ------------------ Mobile Responsive Navbar ------------------ */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffff;
+        /* Consistent with desktop */
+        position: absolute;
+        top: 130%;
+        right: 5%;
+        width: 40%;
+        padding: 15px 0;
+        text-align: center;
+        border-radius: 10%;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li a {
+        color: #0077b6;
+        /* stay white on mobile */
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* ------------------ Feedback Form Styling ------------------ */
 #feedbackForm {
     background-color: #eff1f1;
     max-width: 600px;
@@ -8,58 +99,7 @@
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
     display: flex;
     flex-direction: column;
-}
-
-/* --- Stars --- */
-.star-rating {
-    display: inline-flex;
-    flex-direction: row-reverse;
-    /* lets ~ select “previous” stars visually */
-    gap: 6px;
-}
-
-.star-rating input {
-    position: absolute;
-    left: -9999px;
-    /* hide radios but keep them accessible */
-}
-
-.star-rating label {
-    width: 32px;
-    height: 32px;
-    cursor: pointer;
-    line-height: 1;
-    display: inline-block;
-    user-select: none;
-}
-
-/* hollow star by default */
-.star-rating label::before {
-    content: "\2606";
-    /* ☆ */
-    font-size: 32px;
-    color: #c9c9c9;
-    transition: color 0.2s ease;
-}
-
-/* hover: this star + all “previous” (visually left) stars */
-.star-rating label:hover::before,
-.star-rating label:hover~label::before {
-    content: "\2605";
-    /* ★ */
-    color: #f5b301;
-}
-
-/* checked: the selected star itself */
-.star-rating input:checked+label::before {
-    content: "\2605";
-    color: #f5b301;
-}
-
-/* checked: and all “previous” (visually left) stars */
-.star-rating input:checked~label::before {
-    content: "\2605";
-    color: #f5b301;
+    gap: 15px;
 }
 
 #feedbackForm label {
@@ -104,7 +144,49 @@
     background-color: #0077b6;
 }
 
-/* Responsive */
+/* ------------------ Star Rating ------------------ */
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    gap: 6px;
+}
+
+.star-rating input {
+    position: absolute;
+    left: -9999px;
+}
+
+.star-rating label {
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    line-height: 1;
+    display: inline-block;
+    user-select: none;
+}
+
+.star-rating label::before {
+    content: "\2606";
+    /* hollow star ☆ */
+    font-size: 32px;
+    color: #c9c9c9;
+    transition: color 0.2s ease;
+}
+
+.star-rating label:hover::before,
+.star-rating label:hover~label::before {
+    content: "\2605";
+    /* filled star ★ */
+    color: #f5b301;
+}
+
+.star-rating input:checked+label::before,
+.star-rating input:checked~label::before {
+    content: "\2605";
+    color: #f5b301;
+}
+
+/* ------------------ Responsive Form ------------------ */
 @media (max-width: 768px) {
     #feedbackForm {
         padding: 1.5rem;

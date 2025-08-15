@@ -5,11 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Us - Sai Samarth</title>
+    <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="contact.css" />
 
     <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function () {
             emailjs.init({
@@ -22,13 +22,18 @@
 <body>
     <header>
         <nav>
-            <h1>Sai Samarth Tours & Travels</h1>
-            <ul>
+            <h1>Sai Samarth</h1>
+            <!-- Hamburger button -->
+            <button class="menu-toggle">☰</button>
+            <!-- Added class="nav-links" so JS + CSS works -->
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+
             </ul>
         </nav>
     </header>
@@ -51,11 +56,25 @@
             <button type="submit">Send Message</button>
             <p id="formMessage" style="margin-top: 10px; font-weight: bold; color: green;"></p>
         </form>
-
     </section>
+
+    <!-- Hamburger toggle script -->
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        if (menuToggle && navLinks) {
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
 
     <!-- Link sendForm.js at the end so the form exists before JS runs -->
     <script src="sendForm.js"></script>
+    <footer>
+        <p>Contact us: +91-8329251020 | Email: gosaisamarth23@gmail.com</p>
+    </footer>
 </body>
 
 </html>
